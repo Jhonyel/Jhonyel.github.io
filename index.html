@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jhonyel Galvis</title>
+    <link rel="icon" href="images/favicon.png" type="image/png" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="mobile-message" style="display: none">
+      <div class="intro">
+        <p>Hi, my name is</p>
+        <h1 class="name">Jhonyel Galvis.</h1>
+        <p class="deets">
+          I'm an aspiring software developer, studying computer science at
+          Northeastern Univeristy. Please visit my website on desktop for the
+          best experience :)
+        </p>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div class="cursor-light"></div>
+      <div class="nav-bar" id="nav-bar">
+        <nav>
+          <a href="" class="logo-link">
+            <h2 class="logo">
+              <i class="fa-regular fa-j"></i>
+              <span><i class="fa-solid fa-g"></i></span>
+            </h2>
+          </a>
+          <div>
+            <u1>
+              <li>
+                <a href="#about"><span>.01 </span>About</a>
+              </li>
+              <li>
+                <a href="#projects"><span>.02 </span>Projects</a>
+              </li>
+              <li>
+                <a href="#contact"><span>.03 </span>Contact</a>
+              </li>
+            </u1>
+            <span>
+              <button>
+                <a
+                  class="resume"
+                  href="assets/JackDreifusResume.pdf"
+                  target="_blank"
+                >
+                  Resume
+                </a>
+              </button>
+            </span>
+          </div>
+        </nav>
+      </div>
+
+      <section id="intro">
+        <div class="intro">
+          <p>Hi, my name is</p>
+          <h1 class="name">Jhonyel Galvis.</h1>
+          <p class="deets">
+            I'm an aspiring software developer, studying computer science at
+            Northeastern Univeristy.
+          </p>
+        </div>
+      </section>
+
+      <section class="about" id="about">
+        <div class="about-container">
+          <div class="about-image">
+            <div class="arrow left-arrow">&lt;</div>
+            <img id="current-photo" src="assets/prof-photo.jpeg" />
+            <div class="arrow right-arrow">&gt;</div>
+          </div>
+          <div class="about-content">
+            <h1><span>.01</span> A Little About Me</h1>
+            <h5>Developer & Student</h5>
+            <p>
+              Hi there! I’m Jhonyel Galvis, a second-year student at Northeastern
+              University, pursuing a BS in Computer Science. I’m an aspiring
+              software developer with a passion for creating, collaborating, and
+              staying active. At Northeastern, I’m involved in three amazing
+              communities: the Electric Racing Software Team, the Men’s Club Running Team,
+              and Kappa Theta Pi—Northeastern’s first professional tech
+              fraternity. These experiences give me the perfect mix of immersing
+              myself in the tech world while staying fit and connected. As part
+              of the Electric Racing Team, I spend my time working on
+              <a
+                href="https://github.com/Northeastern-Electric-Racing/FinishLine"
+                target="_blank"
+                >FinishLine</a
+              >, our full-stack TypeScript product management dashboard. Over
+              the past year, I focused on developing both front-end and back-end
+              features as well as learning an abundance of new technolgies.
+              Outside of the tech realm, you can find me playing sports,
+              experimenting in the kitchen, or spending time with the people who
+              matter most.
+            </p>
+            <h5>My toolkit:</h5>
+            <div class="skills-list"></div>
+            <div class="skill"><img src="images/java.png" alt="java" /></div>
+            <div class="skill"><img src="images/c-.png" alt="C++" /></div>
+            <div class="skill">
+              <img src="images/physics.png" alt="react" />
+            </div>
+            <div class="skill">
+              <img
+                src="images/material-ui-icon-2048x1626-on580ia9.png"
+                alt="mui"
+              />
+            </div>
+            <div class="skill">
+              <img src="images/typescript.png" alt="ts" />
+            </div>
+            <div class="skill">
+              <img
+                src="images/node-js-icon-1817x2048-g8tzf91e.png"
+                alt="node"
+              />
+            </div>
+            <div class="skill">
+              <img src="images/code.png" alt="html/css" />
+            </div>
+            <div class="skill">
+              <img src="images/racket-logo.svg" alt="racket" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="container" id="projects">
+          <h1><span>.02</span>Projects I've Contributed To</h1>
+          <div class="card-container">
+            <article class="card-article">
+              <img src="assets/roomiesync.gif" alt="image" class="card-image" />
+              <div class="card-data">
+                <span class="card-description"
+                  >Typscript, React, Python, Flask</span
+                >
+                <h2 class="card-title">RoomieSync</h2>
+                <a
+                  href="https://github.com/dreifusjack/RoomieSync"
+                  target="_blank"
+                  class="card-button"
+                  >Learn more</a
+                >
+              </div>
+            </article>
+            <article class="card-article">
+              <img src="assets/finishline.gif" alt="image" class="card-image" />
+              <div class="card-data">
+                <span class="card-description"
+                  >TypeScript, React, Express.js, Prisma
+                </span>
+                <h2 class="card-title">FinishLine</h2>
+                <a
+                  href="https://github.com/dreifusjack/Air-Hockey"
+                  target="_blank"
+                  class="card-button"
+                  >Learn more</a
+                >
+              </div>
+            </article>
+            <article class="card-article">
+              <img src="assets/threetrios.gif" alt="image" class="card-image" />
+              <div class="card-data">
+                <span class="card-description">Java, Swing, JUnit</span>
+                <h2 class="card-title">Three Trios</h2>
+                <a
+                  href="https://github.com/dreifusjack/Air-Hockey"
+                  target="_blank"
+                  class="card-button"
+                  >Learn more</a
+                >
+              </div>
+            </article>
+            <article class="card-article">
+              <img src="assets/lightemall.gif" alt="image" class="card-image" />
+              <div class="card-data">
+                <span class="card-description">Java, ImpWorld</span>
+                <h2 class="card-title">Light Em All Maze Generation</h2>
+                <a
+                  href="https://github.com/dreifusjack/LightEmAll-Overview"
+                  target="_blank"
+                  class="card-button"
+                  >Learn more</a
+                >
+              </div>
+            </article>
+            <article class="card-article">
+              <img
+                src="assets/com-center-system.png"
+                alt="image"
+                class="card-image"
+              />
+              <div class="card-data">
+                <span class="card-description">C++</span>
+                <h2 class="card-title">Community Center Data Management</h2>
+                <a
+                  href="https://github.com/dreifusjack/Community-Center-Management-System"
+                  target="_blank"
+                  class="card-button"
+                  >Learn more</a
+                >
+              </div>
+            </article>
+            <article class="card-article">
+              <img
+                src="assets/minesweeper.gif"
+                alt="image"
+                class="card-image"
+              />
+              <div class="card-data">
+                <span class="card-description">Java, ImpWorld</span>
+                <h2 class="card-title">Minesweeper</h2>
+                <a
+                  href="https://github.com/dreifusjack/Minesweeper-Overview"
+                  target="_blank"
+                  class="card-button"
+                  >Learn more</a
+                >
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="contact" id="contact">
+          <form
+            action="https://api.web3forms.com/submit"
+            method="POST"
+            class="contactForm"
+          >
+            <div class="contactTitle">
+              <h2><span>.03</span> Get In Touch!</h2>
+              <div class="contactSocials">
+                <ul>
+                  <li>
+                    <a
+                      href="https://www.linkedin.com/in/jack-dreifus-7770b228b/"
+                      target="_blank"
+                      ><i class="fa fa-brands fa-linkedin"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/dreifusjack" target="_blank"
+                      ><i class="fa fa-brands fa-github"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <input
+              type="hidden"
+              name="access_key"
+              value="a6b266a4-0eaf-4643-a6da-86b70460cfe4"
+            />
+            <input
+              type="name"
+              name="name"
+              id="nameInput"
+              placeholder="Your Name"
+              class="contactInputs"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              id="emailInput"
+              placeholder="Your Email"
+              class="contactInputs"
+              required
+            />
+            <textarea
+              name="message"
+              id="messageInput"
+              placeholder="Your Message"
+              class="contactInputs"
+              required
+            ></textarea>
+            <button type="submit">Shoot</button>
+          </form>
+        </div>
+      </section>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
