@@ -39,7 +39,7 @@
     width: 10px;
   }
   ::-webkit-scrollbar-thumb {
-    background: #20251c;
+    background: #1c2325;
     border-radius: 10px;
   }
   
@@ -95,7 +95,7 @@
     color: white;
   }
   span {
-    color: #79875c;
+    color: #5c7e87;
     font: arial;
     font-family: "Source Code Pro", monospace;
   }
@@ -120,16 +120,16 @@
     font-style: bold;
   }
   nav u1 li a:hover {
-    color: #79875c;
+    color: #5c8187;
   }
   
   button {
     padding: 10px 20px;
     background-color: #0f140c;
-    color: #79875c;
+    color: #5c7b87;
     font-weight: bold;
     border-radius: 10px;
-    border: 1px solid #79875c;
+    border: 1px solid #5c7b87;
     cursor: pointer;
     margin-left: 20px;
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -138,12 +138,12 @@
   
   button:hover {
     color: #0f140c;
-    background-color: #79875c;
+    background-color: #5c7c87;
   }
   
   nav div span button .resume {
     text-decoration: none;
-    color: #79875c;
+    color: #5c7a87;
     transition: background-color 0.3s ease, color 0.3s ease;
     font-family: "Source Code Pro", monospace;
   }
@@ -151,7 +151,7 @@
   nav div span button:hover .resume {
     text-decoration: none;
     color: #0f140c;
-    background-color: #79875c;
+    background-color: #5c7e87;
   }
   
   /* Default Styles for Desktop */
@@ -162,7 +162,7 @@
   }
   
   .intro p {
-    color: #79875c;
+    color: #5c8687;
     font-size: 20px;
     display: inline-block;
     margin-bottom: 30px;
@@ -185,7 +185,7 @@
   }
   
   .intro .deets a {
-    color: #79875c;
+    color: #5c7a87;
     text-decoration: none;
     transition: text-decoration 0.3s ease-in-out;
   }
@@ -305,7 +305,7 @@
   
   .about-content h5 {
     font-size: 24px;
-    color: #79875c;
+    color: #5c8087;
     margin-bottom: 30px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -322,7 +322,7 @@
   }
   
   .about-content p a {
-    color: #79875c;
+    color: #5c8487;
     text-decoration: none;
     font-family: "Calibre", Inter, "San Francisco", "SF Pro Text", -apple-system,
       system-ui, sans-serif;
@@ -419,13 +419,13 @@
   }
   .contactSocials ul li:nth-child(1)::before {
     content: "\f08c";
-    color: #79875c;
-    border-bottom: 3px solid #79875c;
+    color: #5c8487;
+    border-bottom: 3px solid #5c7587;
   }
   .contactSocials ul li:nth-child(2)::before {
     content: "\f09b";
-    color: #79875c;
-    border-bottom: 3px solid #79875c;
+    color: #5c7e87;
+    border-bottom: 3px solid #5c7887;
   }
   .contactSocials ul li:hover::before {
     height: 90%;
@@ -442,7 +442,7 @@
   }
   .contactInputs:focus {
     outline: none;
-    border: 2px solid #79875c;
+    border: 2px solid #5c7187;
   }
   .contactForm textarea {
     height: 140px;
@@ -477,9 +477,9 @@
   
   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
   :root {
-    --first-color: #79875c;
+    --first-color: #5c8587;
     --title-color: #f8f8f2;
-    --container-color: #20251c;
+    --container-color: #1c2523;
     --small-font-size: 0.875rem;
     --h2-font-size: 1.5rem;
   }
