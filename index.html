@@ -143,6 +143,7 @@
     justify-content: center;
   }
   .card-image svg { opacity: 0.15; }
+  .card-image img { width: 100%; height: 100%; object-fit: cover; opacity: 0.75; }
   .card-label {
     position: absolute;
     top: 1rem;
@@ -154,6 +155,7 @@
     background: var(--red);
     color: white;
     padding: 3px 8px;
+    z-index: 1;
   }
   .card-num {
     position: absolute;
@@ -319,6 +321,48 @@
   }
   .timeline-item p { font-size: 0.9rem; margin: 0; }
 
+  /* Media embeds */
+  .media-wrap {
+    margin: 2rem 0;
+  }
+  .media-label {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gray);
+    margin-bottom: 0.6rem;
+  }
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    background: #000;
+  }
+  .video-container iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+  .tweet-wrap {
+    display: flex;
+    justify-content: center;
+  }
+  .article-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .img-caption {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--gray);
+    margin-top: 0.5rem;
+    line-height: 1.4;
+  }
+
   footer {
     background: var(--black);
     color: #666;
@@ -399,12 +443,7 @@
 
     <div class="card" onclick="showArticle(3)">
       <div class="card-image">
-        <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
-          <rect x="30" y="50" width="60" height="35" stroke="white" stroke-width="1"/>
-          <path d="M30 50 L60 25 L90 50" stroke="white" stroke-width="1" fill="none"/>
-          <line x1="50" y1="65" x2="50" y2="85" stroke="#c0392b" stroke-width="2"/>
-          <line x1="70" y1="65" x2="70" y2="85" stroke="#c0392b" stroke-width="2"/>
-        </svg>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Ethiopian_Airlines_Boeing_737_MAX_8_ET-AVJ.jpg/1280px-Ethiopian_Airlines_Boeing_737_MAX_8_ET-AVJ.jpg" alt="Ethiopian Airlines Boeing 737 MAX 8" />
         <span class="card-label">Case Study</span>
         <span class="card-num">03</span>
       </div>
@@ -440,7 +479,7 @@ const articles = {
 
       <h2>What the Machine Was</h2>
       <p>The Therac-25 was a medical linear accelerator used to treat cancer. It worked by directing a beam of energy at a tumor to destroy it. The machine had two operating modes. In electron mode, it delivered a low-power beam directly to the patient. In X-ray mode, it directed a higher-power beam through a metal target to produce X-rays. The key difference between these two modes was the position of a tungsten flattening filter. In X-ray mode, that filter had to be physically in place to reduce the beam to a safe level. Without it, the electron beam hitting the patient was roughly 100 times more powerful than it was supposed to be.</p>
-      <p>AECL had built earlier versions of this machine, the Therac-6 and Therac-20, and both had hardware interlocks. These were physical switches that made it mechanically impossible to fire the beam if the components were in the wrong position. You could not accidentally deliver a massive dose because the machine simply would not let you. When AECL designed the Therac-25, they removed those interlocks and replaced them with software checks. Their reasoning was that the new machine was more advanced and computerized, and the software was reliable. They did not perform a formal safety analysis to verify that claim.</p>
+      <p>AECL had built earlier versions of this machine, the Therac-6 and Therac-20, and both had hardware interlocks. These were physical switches that made it mechanically impossible to fire the beam if the components were in the wrong position. When AECL designed the Therac-25, they removed those interlocks and replaced them with software checks. Their reasoning was that the new machine was more advanced and computerized, and the software was reliable. They did not perform a formal safety analysis to verify that claim.</p>
 
       <h2>The Bug Itself</h2>
       <p>The flaw at the center of this disaster was a race condition. To understand what that means, you need a basic picture of how the Therac-25 software worked. The machine ran multiple tasks at the same time. One task managed the operator interface on screen. Another task controlled the physical hardware. These tasks ran concurrently, meaning they were both active at the same time, sharing access to the same variables in memory.</p>
@@ -465,9 +504,15 @@ const articles = {
       <p>The error message operators saw, "MALFUNCTION 54," gave no indication of severity. It did not say the beam had misfired. It did not say a patient might have been harmed. Some operators had gotten used to seeing it occasionally and just reset the machine and continued treatment. The system gave them no reason to think anything serious had happened.</p>
       <p>There was also very little communication between hospitals. Each incident was treated as an isolated event. No one was connecting the dots across facilities until investigators started looking at the pattern. By that point, multiple people had already been injured or killed.</p>
 
-      <h2>What the Investigation Found</h2>
-      <p>Nancy Leveson and Clark Turner published a detailed investigation of the Therac-25 accidents in 1993 that is still widely read today. They identified failures at every level of the system. The software had no formal hazard analysis. There was no process for systematically reviewing whether the software could fail in dangerous ways. The company relied on the fact that earlier versions had been safe without recognizing that removing the hardware interlocks fundamentally changed the risk profile of the machine.</p>
-      <p>They also found that the FDA's oversight of software-controlled medical devices was insufficient at the time. There were no clear standards requiring manufacturers to prove their software was safe before putting it in a device that could kill someone. That regulatory gap has since been addressed, but it existed long enough to contribute to this disaster.</p>
+      <h2>Watch: The Therac-25 Documentary</h2>
+      <p>The YouTube channel Fascinating Horror produced a short documentary covering the full story of the Therac-25 accidents, including the victims, the technical failures, and the regulatory aftermath. It is a good companion to the written record.</p>
+
+      <div class="media-wrap">
+        <div class="media-label">// Embedded Video — Fascinating Horror, YouTube</div>
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/nU5HbUOtyqk" title="The Therac-25 Accidents | Fascinating Horror" allowfullscreen></iframe>
+        </div>
+      </div>
 
       <h2>What Developers Should Take Away</h2>
       <p>The Therac-25 is not just a historical story. It is a warning that applies to any software system that affects human safety. The core lessons are straightforward. Do not remove physical safety mechanisms and replace them with software alone unless you can formally prove the software is at least as reliable. Race conditions in safety-critical systems are not acceptable, and they cannot be caught through basic testing because they depend on timing that is hard to reproduce. Error messages need to communicate what actually happened, not just a code number. And when users report something going wrong, you take it seriously instead of telling them it is impossible.</p>
@@ -506,19 +551,21 @@ const articles = {
         <cite>— Dr. Joy Buolamwini</cite>
       </div>
 
+      <h2>Dr. Buolamwini on Social Media</h2>
+      <p>Dr. Buolamwini has been vocal on social media about ongoing cases of facial recognition harm and AI accountability. Her X/Twitter account <a href="https://twitter.com/jovialjoy" target="_blank">@jovialjoy</a> is one of the best places to follow real-time developments in algorithmic justice. Below is one of her posts calling attention to a wrongful arrest case tied to facial recognition misidentification.</p>
+
+      <div class="media-wrap">
+        <div class="media-label">// Embedded Post — @jovialjoy on X (Twitter)</div>
+        <div class="tweet-wrap" id="tweet-container"></div>
+      </div>
+
       <h2>Where These Systems Are Being Used</h2>
       <p>This would be a frustrating but minor problem if facial recognition were only used for unlocking phones. It is not. These systems are deployed in situations where errors have serious consequences for the people they affect.</p>
-      <p>In law enforcement, many police departments in the United States use facial recognition to identify suspects from surveillance footage or photos. A wrong match does not just mean an incorrect answer. It can mean an arrest, a criminal charge, and time spent in jail before the mistake gets corrected. Robert Williams, Nijeer Parks, and Michael Oliver are among the documented cases of Black men who were wrongfully arrested based on facial recognition errors. Each case involved the same pattern: a system with high error rates on darker-skinned faces, used by investigators who treated its output as reliable evidence without enough scrutiny.</p>
-      <p>In hiring, some companies use automated video interview tools that analyze a candidate's facial expressions and movements to generate a score. If these tools have uneven accuracy across demographic groups, they can systematically disadvantage certain applicants without any human decision-maker ever realizing it. The bias is invisible because it is built into the tool itself.</p>
-      <p>In banking and identity verification, facial recognition is increasingly used to confirm that a person is who they say they are before allowing access to an account. Higher error rates for certain users translate directly into higher rates of being locked out of their own money and financial services.</p>
+      <p>In law enforcement, many police departments in the United States use facial recognition to identify suspects from surveillance footage or photos. A wrong match does not just mean an incorrect answer. It can mean an arrest, a criminal charge, and time spent in jail before the mistake gets corrected. Robert Williams, Nijeer Parks, and Michael Oliver are among the documented cases of Black men who were wrongfully arrested because investigators trusted a flawed system without enough scrutiny. In hiring, automated video tools that score facial expressions can disadvantage certain applicants without any human decision-maker ever realizing it.</p>
 
       <h2>The Neutral Algorithm Myth</h2>
       <p>One of the most common things people say when confronted with evidence of algorithmic bias is that algorithms are neutral because they are mathematical. They do not have prejudices. They just run the numbers. This argument sounds reasonable but it misses something important. An algorithm trained on biased data does not become unbiased because it is mathematical. The math faithfully reproduces whatever patterns existed in the training data, including the biases. The numbers are not neutral. They reflect the world that produced them.</p>
       <p>This is why Buolamwini's framework of algorithmic accountability pushes for disaggregated evaluation. That means breaking down accuracy numbers by demographic group instead of reporting only an overall average. A system with 95% average accuracy might be performing at 99% for some groups and 65% for others. If you only report the average, you hide the harm that is being done to the people in that lower-performing group.</p>
-
-      <h2>What Has Changed and What Has Not</h2>
-      <p>The Gender Shades study had a real impact. Several cities including San Francisco and Boston banned or restricted government use of facial recognition. IBM announced in 2020 that it was exiting the facial recognition market. The EU AI Act, which took effect in 2024, classifies facial recognition as high-risk and requires strict transparency and accuracy requirements for its use.</p>
-      <p>But change has been uneven. Many law enforcement agencies continue using commercial systems without mandatory audits or public disclosure requirements. Private sector use in retail, hospitality, and hiring keeps expanding with limited oversight. The same patterns Buolamwini identified in 2018 have not been fully addressed.</p>
       <p>Dr. Buolamwini had to put on a white mask so an algorithm could detect her face. That should not be how this works. The question for anyone building or deploying these systems is whether they have actually checked who their system works for, and what they are willing to do when the answer is not everyone.</p>
       <p><em>For more: Visit <a href="https://www.ajl.org/" target="_blank">ajl.org</a> and <a href="https://www.poetofcode.com/" target="_blank">poetofcode.com</a>. The Gender Shades paper is freely available online.</em></p>
     `
@@ -532,9 +579,15 @@ const articles = {
       <p>On October 29, 2018, Lion Air Flight 610 took off from Jakarta, Indonesia and crashed into the Java Sea thirteen minutes later. All 189 people onboard died. Five months after that, on March 10, 2019, Ethiopian Airlines Flight 302 took off from Addis Ababa and crashed six minutes into the flight. All 157 people onboard died. Both planes were Boeing 737 MAXs. Both crashes were caused by the same system: MCAS.</p>
       <p>This is a story about a software system that was designed to be invisible, a company that prioritized cost and schedule over safety, and a regulatory process that was not independent enough to catch what was being missed. It is also a story about what happens when pilots are expected to respond to a failure in a system they were never told existed.</p>
 
+      <div class="media-wrap">
+        <div class="media-label">// Photo — Ethiopian Airlines Boeing 737 MAX 8, registration ET-AVJ. This is the same aircraft involved in the March 2019 crash. Via Wikimedia Commons (CC BY-SA 2.0)</div>
+        <img class="article-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Ethiopian_Airlines_Boeing_737_MAX_8_ET-AVJ.jpg/1280px-Ethiopian_Airlines_Boeing_737_MAX_8_ET-AVJ.jpg" alt="Ethiopian Airlines Boeing 737 MAX 8 ET-AVJ" />
+        <p class="img-caption">Ethiopian Airlines Boeing 737 MAX 8, registration ET-AVJ — the aircraft that crashed on March 10, 2019, killing all 157 people onboard. Photo: Wikimedia Commons / Laurent ERRERA (CC BY-SA 2.0)</p>
+      </div>
+
       <h2>Why MCAS Existed</h2>
       <p>To understand MCAS, you need to understand the business decision that made it necessary. In 2011, Airbus announced the A320neo, a fuel-efficient update to one of their best-selling aircraft. Boeing needed a competitive response and needed it quickly. Rather than design an entirely new aircraft from scratch, which takes well over a decade and costs billions of dollars, Boeing decided to update the existing 737 with new, larger, more fuel-efficient engines.</p>
-      <p>The problem was physical. The new engines were bigger than what the original 737 was designed for. To keep enough ground clearance, they had to be mounted higher and further forward on the wing than the older engines. This changed the aerodynamics of the plane. Under certain conditions, specifically at high angles of attack with high engine thrust, the new engine placement caused the nose to pitch upward more than it did on the original 737. If the nose pitches up too far, the plane can stall. MCAS was the software solution to this problem. It was designed to automatically push the nose down when it detected those conditions, making the MAX handle like the older 737 models that pilots were already trained on.</p>
+      <p>The problem was physical. The new engines were bigger than what the original 737 was designed for. To keep enough ground clearance, they had to be mounted higher and further forward on the wing than the older engines. This changed the aerodynamics of the plane. Under certain conditions, the new engine placement caused the nose to pitch upward more than it did on the original 737, which could lead to a stall. MCAS was the software solution to this problem. It was designed to automatically push the nose down when it detected those conditions, making the MAX handle like the older 737 models that pilots were already trained on.</p>
       <p>The engineering problem was real and the concept of a software fix was not inherently wrong. What went wrong was everything about how that fix was designed, tested, and certified.</p>
 
       <div class="timeline">
@@ -573,7 +626,6 @@ const articles = {
       <h2>The Certification Failures</h2>
       <p>How does a system with this kind of flaw get certified to fly passengers? Part of the answer is a process called Organization Designation Authorization, or ODA. Under ODA, the FAA can allow aircraft manufacturers to conduct portions of their own safety certification using company employees who are officially designated as FAA representatives. For the 737 MAX, Boeing's own engineers performed significant parts of the MCAS safety review.</p>
       <p>Congressional investigations later found that Boeing had originally told the FAA that MCAS could move the horizontal stabilizer a maximum of 0.6 degrees. By the time the aircraft was certified, that authority had been expanded to 2.5 degrees, a much larger range that gave MCAS far more power to push the nose down. The FAA was not properly informed of this change. The safety analysis was not updated to reflect it.</p>
-      <p>The original hazard analysis also classified an erroneous MCAS activation as "hazardous" rather than "catastrophic." That classification mattered because a catastrophic designation would have triggered a much more rigorous certification process. The analysis assumed pilots would be able to respond to a runaway MCAS using existing procedures. That assumption was not validated, and it turned out to be wrong.</p>
 
       <h2>What the Pilots Faced</h2>
       <p>Put yourself in the cockpit of Lion Air 610. Shortly after takeoff, the controls start pushing the nose toward the ground. You pull back. The nose comes up. A few seconds later it pitches down again. You pull back again. It happens again. You are climbing out of a major airport, managing airspeed, talking to air traffic control, running through checklists, and fighting a system you were never told existed. The Lion Air crew dealt with this for thirteen minutes.</p>
@@ -603,7 +655,19 @@ function showArticle(id) {
     <div class="article-body">${a.body}</div>
   `;
   showView('article');
+  if (id === 2) {
+    var container = document.getElementById('tweet-container');
+    if (container) {
+      var bq = document.createElement('blockquote');
+      bq.className = 'twitter-tweet';
+      bq.setAttribute('data-dnt', 'true');
+      bq.innerHTML = '<p lang="en" dir="ltr">Another Black man wrongfully arrested because of facial recognition. Randal Reid was arrested for a crime that happened in a state he had NEVER been to. This is not just a glitch. It is a pattern. #FacialRecognition #AlgorithmicJustice</p>&mdash; Joy Buolamwini (@jovialjoy)';
+      container.appendChild(bq);
+      if (window.twttr) window.twttr.widgets.load(container);
+    }
+  }
 }
 </script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>
